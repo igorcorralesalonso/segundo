@@ -1,0 +1,8 @@
+--extra-index-url http://artifactory.hi.inet/artifactory/api/pypi/pypi-release-local/simple/ --trusted-host artifactory.hi.inet
+toolium11paths==2.1.5
+behave_pytest==0.1.1
+pytest==2.9.2  # behave-pytest is not compatible with pytest 3
+numpy # wave matching
+scipy # wave matching
+adb_android
+needle # visual testing
