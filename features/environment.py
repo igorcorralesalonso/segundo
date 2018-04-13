@@ -4,5 +4,4 @@
 Copyright (c) Telefonica Digital.
 ElevenPaths QA Team <qateam@11paths.com>
 """
-
-from common.environment import *
+from commmon.steps import *
