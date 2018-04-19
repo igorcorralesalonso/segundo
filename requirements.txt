@@ -6,3 +6,4 @@ numpy # wave matching
 scipy # wave matching
 adb_android
 needle # visual testing
+python-hamcrest==1.8.0-1 # assertiom Matcher library
