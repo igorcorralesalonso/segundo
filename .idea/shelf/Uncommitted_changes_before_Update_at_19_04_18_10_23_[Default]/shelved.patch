@@ -1,0 +1,710 @@
+Index: requirements.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>--extra-index-url http://artifactory.hi.inet/artifactory/api/pypi/pypi-release-local/simple/ --trusted-host artifactory.hi.inet\ntoolium11paths==2.1.5\nbehave_pytest==0.1.1\npytest==2.9.2  # behave-pytest is not compatible with pytest 3\nnumpy # wave matching\nscipy # wave matching\nadb_android\nneedle # visual testing\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- requirements.txt	(revision 2d23ec3b0f8de6f3fff89a8a305654d50175e30a)
++++ requirements.txt	(date 1523878235000)
+@@ -6,3 +6,4 @@
+ scipy # wave matching
+ adb_android
+ needle # visual testing
++hamcrest # assertiom Matcher library
+\ No newline at end of file
+Index: features/steps/step_tutorial.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- features/steps/step_tutorial.py	(date 1523620452000)
++++ features/steps/step_tutorial.py	(date 1523620452000)
+@@ -0,0 +1,22 @@
++# file:features/steps/step_tutorial01.py
++# ----------------------------------------------------------------------------
++# STEPS:
++# ----------------------------------------------------------------------------
++from behave import given, when, then
++
++
++@given('we have behave installed')
++def step_impl(context):
++    print("1")
++
++
++@when('we implement a test')
++def step_impl(context):
++    print("2")
++    assert True is not False
++
++
++@then('behave will test it for us!')
++def step_impl(context):
++    print("3")
++    assert context.failed is False
+Index: features/steps/steps.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from commmon.steps.step_tutorial import *
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- features/steps/steps.py	(revision 2d23ec3b0f8de6f3fff89a8a305654d50175e30a)
++++ features/steps/steps.py	(date 1523864007000)
+@@ -1,1 +1,1 @@
+-from commmon.steps.step_tutorial import *
+\ No newline at end of file
++#from commmon.steps.step_tutorial import *
+\ No newline at end of file
+Index: features/primerfeature.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># file:features/tutorial01_basics.feature\nFeature: Showing off behave (tutorial01)\n\nScenario: Run a simple test\n    Given we have behave installed\n    When we implement a test\n    Then behave will test it for us!\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- features/primerfeature.feature	(revision 2d23ec3b0f8de6f3fff89a8a305654d50175e30a)
++++ features/primerfeature.feature	(date 1524050099000)
+@@ -4,4 +4,4 @@
+ Scenario: Run a simple test
+     Given we have behave installed
+     When we implement a test
+-    Then behave will test it for us!
++    Then behave will test it for us!
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"84f772cb-6ae5-4c90-8e9a-b7ed7ce61530\" name=\"Default\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/features/environment.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/common/steps/environment.py\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/common/steps/step_tutorial.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/commmon/steps/step_tutorial.py\" afterDir=\"false\" />\n    </list>\n    <option name=\"EXCLUDED_CONVERTED_TO_IGNORED\" value=\"true\" />\n    <option name=\"TRACKING_ENABLED\" value=\"true\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileEditorManager\">\n    <leaf>\n      <file leaf-file-name=\"steps.py\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/features/steps/steps.py\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\" />\n        </entry>\n      </file>\n      <file leaf-file-name=\"environment.py\" pinned=\"false\" current-in-tab=\"true\">\n        <entry file=\"file://$PROJECT_DIR$/features/environment.py\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"17\">\n              <caret line=\"1\" lean-forward=\"true\" selection-start-line=\"1\" selection-end-line=\"1\" />\n            </state>\n          </provider>\n        </entry>\n      </file>\n      <file leaf-file-name=\"step_tutorial.py\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/commmon/steps/step_tutorial.py\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\" />\n        </entry>\n      </file>\n      <file leaf-file-name=\"primerfeature.feature\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/features/primerfeature.feature\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\" />\n        </entry>\n      </file>\n    </leaf>\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Python Script\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n  </component>\n  <component name=\"IdeDocumentHistory\">\n    <option name=\"CHANGED_PATHS\">\n      <list>\n        <option value=\"$PROJECT_DIR$/features/environment.py\" />\n        <option value=\"$PROJECT_DIR$/commmon/steps/step_tutorial.py\" />\n        <option value=\"$PROJECT_DIR$/features/steps/steps.py\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"JsBuildToolGruntFileManager\" detection-done=\"true\" sorting=\"DEFINITION_ORDER\" />\n  <component name=\"JsBuildToolPackageJson\" detection-done=\"true\" sorting=\"DEFINITION_ORDER\" />\n  <component name=\"JsGulpfileManager\">\n    <detection-done>true</detection-done>\n    <sorting>DEFINITION_ORDER</sorting>\n  </component>\n  <component name=\"ProjectFrameBounds\" extendedState=\"6\">\n    <option name=\"x\" value=\"57\" />\n    <option name=\"y\" value=\"61\" />\n    <option name=\"width\" value=\"1890\" />\n    <option name=\"height\" value=\"930\" />\n  </component>\n  <component name=\"ProjectView\">\n    <navigator proportions=\"\" version=\"1\">\n      <foldersAlwaysOnTop value=\"true\" />\n    </navigator>\n    <panes>\n      <pane id=\"Scope\" />\n      <pane id=\"ProjectPane\">\n        <subPane>\n          <expand>\n            <path>\n              <item name=\"primeros_pasos\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"primeros_pasos\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"primeros_pasos\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"primeros_pasos\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"commmon\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"primeros_pasos\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"primeros_pasos\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"commmon\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"steps\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"primeros_pasos\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"primeros_pasos\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"features\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"primeros_pasos\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"primeros_pasos\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"features\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"steps\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n          </expand>\n          <select />\n        </subPane>\n      </pane>\n    </panes>\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/../troya-tests\" />\n    <property name=\"nodejs_interpreter_path.stuck_in_default_project\" value=\"undefined stuck path\" />\n    <property name=\"nodejs_npm_path_reset_for_default_project\" value=\"true\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"D:\\REPOSITORIOS_GIT\\primeros_pasos\\commmon\" />\n      <recent name=\"D:\\REPOSITORIOS_GIT\\primeros_pasos\\features\" />\n    </key>\n  </component>\n  <component name=\"RunDashboard\">\n    <option name=\"ruleStates\">\n      <list>\n        <RuleState>\n          <option name=\"name\" value=\"ConfigurationTypeDashboardGroupingRule\" />\n        </RuleState>\n        <RuleState>\n          <option name=\"name\" value=\"StatusDashboardGroupingRule\" />\n        </RuleState>\n      </list>\n    </option>\n  </component>\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"84f772cb-6ae5-4c90-8e9a-b7ed7ce61530\" name=\"Default\" comment=\"\" />\n      <created>1523615966439</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1523615966439</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"ToolWindowManager\">\n    <frame x=\"-7\" y=\"-7\" width=\"1295\" height=\"695\" extended-state=\"6\" />\n    <editor active=\"true\" />\n    <layout>\n      <window_info anchor=\"bottom\" id=\"TODO\" order=\"6\" />\n      <window_info anchor=\"bottom\" id=\"Event Log\" side_tool=\"true\" />\n      <window_info anchor=\"bottom\" id=\"Database Changes\" show_stripe_button=\"false\" />\n      <window_info anchor=\"bottom\" id=\"Run\" order=\"2\" weight=\"0.3283582\" />\n      <window_info anchor=\"bottom\" id=\"Version Control\" weight=\"0.3283582\" />\n      <window_info anchor=\"bottom\" id=\"Python Console\" />\n      <window_info anchor=\"bottom\" id=\"Terminal\" visible=\"true\" weight=\"0.4402985\" />\n      <window_info active=\"true\" content_ui=\"combo\" id=\"Project\" order=\"0\" visible=\"true\" weight=\"0.24939272\" />\n      <window_info anchor=\"bottom\" id=\"Docker\" show_stripe_button=\"false\" />\n      <window_info anchor=\"right\" id=\"Database\" />\n      <window_info anchor=\"right\" id=\"SciView\" />\n      <window_info id=\"Structure\" order=\"1\" side_tool=\"true\" weight=\"0.25\" />\n      <window_info anchor=\"bottom\" id=\"Debug\" order=\"3\" weight=\"0.4\" />\n      <window_info id=\"Favorites\" side_tool=\"true\" />\n      <window_info anchor=\"bottom\" id=\"Find\" order=\"1\" />\n      <window_info anchor=\"right\" id=\"Commander\" internal_type=\"SLIDING\" order=\"0\" type=\"SLIDING\" weight=\"0.4\" />\n      <window_info anchor=\"bottom\" id=\"Inspection\" order=\"5\" weight=\"0.4\" />\n      <window_info anchor=\"right\" content_ui=\"combo\" id=\"Hierarchy\" order=\"2\" weight=\"0.25\" />\n      <window_info anchor=\"right\" id=\"Ant Build\" order=\"1\" weight=\"0.25\" />\n      <window_info anchor=\"bottom\" id=\"Message\" order=\"0\" />\n      <window_info anchor=\"bottom\" id=\"Cvs\" order=\"4\" weight=\"0.25\" />\n    </layout>\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"1\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"RECENTLY_FILTERED_USER_GROUPS\">\n                <collection />\n              </option>\n              <option name=\"RECENTLY_FILTERED_BRANCH_GROUPS\">\n                <collection />\n              </option>\n              <option name=\"COLUMN_ORDER\">\n                <list>\n                  <option value=\"0\" />\n                  <option value=\"1\" />\n                  <option value=\"2\" />\n                  <option value=\"3\" />\n                </list>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsContentAnnotationSettings\">\n    <option name=\"myLimit\" value=\"2678400000\" />\n  </component>\n  <component name=\"editorHistoryManager\">\n    <entry file=\"file://$PROJECT_DIR$/features/primerfeature.feature\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\" />\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/common/steps/environment.py\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\" />\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/features/primerfeature.feature\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\" />\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/commmon/steps/step_tutorial.py\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\" />\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/features/steps/steps.py\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\" />\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/features/environment.py\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"17\">\n          <caret line=\"1\" lean-forward=\"true\" selection-start-line=\"1\" selection-end-line=\"1\" />\n        </state>\n      </provider>\n    </entry>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 2d23ec3b0f8de6f3fff89a8a305654d50175e30a)
++++ .idea/workspace.xml	(date 1524126191000)
+@@ -2,10 +2,15 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="84f772cb-6ae5-4c90-8e9a-b7ed7ce61530" name="Default" comment="">
+-      <change afterPath="$PROJECT_DIR$/features/environment.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/features/steps/step_tutorial.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/primeros_pasos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/primeros_pasos.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/common/steps/environment.py" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/common/steps/step_tutorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/commmon/steps/step_tutorial.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/commmon/steps/step_tutorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/commmon/steps/step_tutorial.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/features/environment.py" beforeDir="false" afterPath="$PROJECT_DIR$/features/environment.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/features/primerfeature.feature" beforeDir="false" afterPath="$PROJECT_DIR$/features/primerfeature.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/features/steps/steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/features/steps/steps.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+     </list>
+     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+     <option name="TRACKING_ENABLED" value="true" />
+@@ -13,31 +18,72 @@
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FavoritesManager">
++    <favorites_list name="primeros_pasos" />
+   </component>
+   <component name="FileEditorManager">
+-    <leaf>
+-      <file leaf-file-name="steps.py" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/features/steps/steps.py">
+-          <provider selected="true" editor-type-id="text-editor" />
++    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
++      <file leaf-file-name="environment.py" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/features/environment.py">
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="72">
++              <caret line="6" selection-start-line="6" selection-end-line="6" />
++            </state>
++          </provider>
++        </entry>
++      </file>
++      <file leaf-file-name="step_tutorial.py" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/commmon/steps/step_tutorial.py">
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="108">
++              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
++            </state>
++          </provider>
++        </entry>
++      </file>
++      <file leaf-file-name="segund.feature" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/features/segund.feature">
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="120">
++              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
++            </state>
++          </provider>
++        </entry>
++      </file>
++      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/requirements.txt">
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="96">
++              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
++            </state>
++          </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="environment.py" pinned="false" current-in-tab="true">
+-        <entry file="file://$PROJECT_DIR$/features/environment.py">
++      <file leaf-file-name="step_tutorial_2.py" pinned="false" current-in-tab="true">
++        <entry file="file://$PROJECT_DIR$/features/steps/step_tutorial_2.py">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="17">
+-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
++            <state relative-caret-position="133">
++              <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
++              <folding>
++                <element signature="e#1824#1862#0" expanded="true" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+       </file>
+       <file leaf-file-name="step_tutorial.py" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/commmon/steps/step_tutorial.py">
++        <entry file="file://$PROJECT_DIR$/features/steps/step_tutorial.py">
+           <provider selected="true" editor-type-id="text-editor" />
+         </entry>
+       </file>
+       <file leaf-file-name="primerfeature.feature" pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/features/primerfeature.feature">
+-          <provider selected="true" editor-type-id="text-editor" />
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="72">
++              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
++            </state>
++          </provider>
+         </entry>
+       </file>
+     </leaf>
+@@ -49,7 +95,14 @@
+       </list>
+     </option>
+   </component>
++  <component name="FindInProjectRecents">
++    <findStrings>
++      <find>ham</find>
++    </findStrings>
++  </component>
+   <component name="Git.Settings">
++    <option name="UPDATE_CHANGES_POLICY" value="SHELVE" />
++    <option name="UPDATE_TYPE" value="MERGE" />
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+@@ -63,6 +116,8 @@
+         <option value="$PROJECT_DIR$/features/environment.py" />
+         <option value="$PROJECT_DIR$/commmon/steps/step_tutorial.py" />
+         <option value="$PROJECT_DIR$/features/steps/steps.py" />
++        <option value="$PROJECT_DIR$/requirements.txt" />
++        <option value="$PROJECT_DIR$/features/primerfeature.feature" />
+       </list>
+     </option>
+   </component>
+@@ -72,11 +127,11 @@
+     <detection-done>true</detection-done>
+     <sorting>DEFINITION_ORDER</sorting>
+   </component>
+-  <component name="ProjectFrameBounds" extendedState="6">
+-    <option name="x" value="57" />
+-    <option name="y" value="61" />
+-    <option name="width" value="1890" />
+-    <option name="height" value="930" />
++  <component name="ProjectFrameBounds">
++    <option name="x" value="1920" />
++    <option name="y" value="23" />
++    <option name="width" value="2560" />
++    <option name="height" value="1377" />
+   </component>
+   <component name="ProjectView">
+     <navigator proportions="" version="1">
+@@ -94,25 +149,8 @@
+             <path>
+               <item name="primeros_pasos" type="b2602c69:ProjectViewProjectNode" />
+               <item name="primeros_pasos" type="462c0819:PsiDirectoryNode" />
+-              <item name="commmon" type="462c0819:PsiDirectoryNode" />
+-            </path>
+-            <path>
+-              <item name="primeros_pasos" type="b2602c69:ProjectViewProjectNode" />
+-              <item name="primeros_pasos" type="462c0819:PsiDirectoryNode" />
+-              <item name="commmon" type="462c0819:PsiDirectoryNode" />
+-              <item name="steps" type="462c0819:PsiDirectoryNode" />
+-            </path>
+-            <path>
+-              <item name="primeros_pasos" type="b2602c69:ProjectViewProjectNode" />
+-              <item name="primeros_pasos" type="462c0819:PsiDirectoryNode" />
+               <item name="features" type="462c0819:PsiDirectoryNode" />
+             </path>
+-            <path>
+-              <item name="primeros_pasos" type="b2602c69:ProjectViewProjectNode" />
+-              <item name="primeros_pasos" type="462c0819:PsiDirectoryNode" />
+-              <item name="features" type="462c0819:PsiDirectoryNode" />
+-              <item name="steps" type="462c0819:PsiDirectoryNode" />
+-            </path>
+           </expand>
+           <select />
+         </subPane>
+@@ -121,7 +159,7 @@
+   </component>
+   <component name="PropertiesComponent">
+     <property name="WebServerToolWindowFactoryState" value="false" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../troya-tests" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$/../troya_test" />
+     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+@@ -131,6 +169,10 @@
+       <recent name="D:\REPOSITORIOS_GIT\primeros_pasos\commmon" />
+       <recent name="D:\REPOSITORIOS_GIT\primeros_pasos\features" />
+     </key>
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$" />
++      <recent name="D:\REPOSITORIOS_GIT\primeros_pasos\features\steps" />
++    </key>
+   </component>
+   <component name="RunDashboard">
+     <option name="ruleStates">
+@@ -158,31 +200,53 @@
+     <servers />
+   </component>
+   <component name="ToolWindowManager">
+-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+-    <editor active="true" />
++    <frame x="1920" y="23" width="2560" height="1377" extended-state="0" />
+     <layout>
++      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6243655" visible="true" weight="0.24017295" />
+       <window_info anchor="bottom" id="TODO" order="6" />
+-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
++      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5003931" side_tool="true" visible="true" weight="0.3834116" />
+       <window_info anchor="bottom" id="Run" order="2" weight="0.3283582" />
+-      <window_info anchor="bottom" id="Version Control" weight="0.3283582" />
+-      <window_info anchor="bottom" id="Python Console" />
+-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.4402985" />
+-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
+-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+-      <window_info anchor="right" id="Database" />
+-      <window_info anchor="right" id="SciView" />
+-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
++      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3880597" />
++      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32968238" />
++      <window_info id="Structure" order="1" side_tool="true" weight="0.24939272" />
++      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4996069" visible="true" weight="0.3834116" />
+       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+-      <window_info id="Favorites" side_tool="true" />
+-      <window_info anchor="bottom" id="Find" order="1" />
++      <window_info id="Favorites" order="2" sideWeight="0.37563452" side_tool="true" visible="true" weight="0.24017295" />
++      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
++      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
++      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
++      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
++      <window_info anchor="right" id="Database" order="3" />
++      <window_info anchor="bottom" id="Message" order="0" />
+       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
++      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
++      <window_info anchor="right" id="SciView" order="3" />
++      <window_info anchor="bottom" id="Find" order="1" />
++    </layout>
++    <layout-to-restore>
+       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
++      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
++      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
++      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
++      <window_info id="Favorites" order="2" side_tool="true" />
++      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20728745" />
++      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
++      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
++      <window_info anchor="bottom" id="TODO" order="6" />
++      <window_info anchor="bottom" id="Run" order="2" weight="0.3283582" />
+       <window_info anchor="bottom" id="Message" order="0" />
+-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+-    </layout>
++      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
++      <window_info anchor="right" id="Database" order="4" />
++      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.4402985" />
++      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
++      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
++      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3880597" />
++      <window_info anchor="right" id="SciView" order="3" />
++      <window_info anchor="bottom" id="Find" order="1" />
++      <window_info anchor="bottom" id="Python Console" order="10" />
++    </layout-to-restore>
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="1" />
+@@ -215,27 +279,318 @@
+   </component>
+   <component name="VcsContentAnnotationSettings">
+     <option name="myLimit" value="2678400000" />
++  </component>
++  <component name="WindowStateProjectService">
++    <state width="175" height="180" key="Git.Branch.Popup" />
++    <state width="175" height="180" key="Git.Branch.Popup/4480.1440" />
++    <state width="175" height="180" key="Git.Branch.Popup@4480.1440" />
+   </component>
+   <component name="editorHistoryManager">
++    <entry file="file://$PROJECT_DIR$/features/environment.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="72">
++          <caret line="6" selection-start-line="6" selection-end-line="6" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/commmon/steps/step_tutorial.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="108">
++          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/segund.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="120">
++          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/requirements.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="96">
++          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
++        </state>
++      </provider>
++    </entry>
+     <entry file="file://$PROJECT_DIR$/features/primerfeature.feature">
+-      <provider selected="true" editor-type-id="text-editor" />
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="84">
++          <caret line="7" selection-start-line="7" selection-end-line="7" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/steps/step_tutorial_2.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="732">
++          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
++          <folding>
++            <element signature="e#1824#1862#0" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/environment.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="72">
++          <caret line="6" selection-start-line="6" selection-end-line="6" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/commmon/steps/step_tutorial.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="108">
++          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/segund.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="120">
++          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/requirements.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="96">
++          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/primerfeature.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="84">
++          <caret line="7" selection-start-line="7" selection-end-line="7" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/steps/step_tutorial_2.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="732">
++          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
++          <folding>
++            <element signature="e#1824#1862#0" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/environment.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="72">
++          <caret line="6" selection-start-line="6" selection-end-line="6" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/commmon/steps/step_tutorial.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="108">
++          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/segund.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="120">
++          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/requirements.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="96">
++          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/primerfeature.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="84">
++          <caret line="7" selection-start-line="7" selection-end-line="7" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/steps/step_tutorial_2.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="732">
++          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
++          <folding>
++            <element signature="e#1824#1862#0" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/environment.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="72">
++          <caret line="6" selection-start-line="6" selection-end-line="6" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/commmon/steps/step_tutorial.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="108">
++          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/segund.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="120">
++          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/requirements.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="96">
++          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/primerfeature.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="84">
++          <caret line="7" selection-start-line="7" selection-end-line="7" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/steps/step_tutorial_2.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="732">
++          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
++          <folding>
++            <element signature="e#1824#1862#0" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/environment.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="72">
++          <caret line="6" selection-start-line="6" selection-end-line="6" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/commmon/steps/step_tutorial.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="108">
++          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/segund.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="120">
++          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
++        </state>
++      </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/common/steps/environment.py">
+-      <provider selected="true" editor-type-id="text-editor" />
++    <entry file="file://$PROJECT_DIR$/requirements.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="96">
++          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
++        </state>
++      </provider>
+     </entry>
+     <entry file="file://$PROJECT_DIR$/features/primerfeature.feature">
+-      <provider selected="true" editor-type-id="text-editor" />
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="84">
++          <caret line="7" selection-start-line="7" selection-end-line="7" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/steps/step_tutorial_2.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="732">
++          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
++          <folding>
++            <element signature="e#1824#1862#0" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/environment.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="102">
++          <caret line="6" selection-start-line="6" selection-end-line="6" />
++        </state>
++      </provider>
+     </entry>
+     <entry file="file://$PROJECT_DIR$/commmon/steps/step_tutorial.py">
+-      <provider selected="true" editor-type-id="text-editor" />
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="153">
++          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/primerfeature.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="119">
++          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/segund.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="170">
++          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/commmon/steps/step_tutorial.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="108">
++          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/environment.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="72">
++          <caret line="6" selection-start-line="6" selection-end-line="6" />
++        </state>
++      </provider>
+     </entry>
+     <entry file="file://$PROJECT_DIR$/features/steps/steps.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state>
++          <caret column="1" selection-start-column="1" selection-end-column="1" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/requirements.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="96">
++          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/primerfeature.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="72">
++          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/steps/step_tutorial.py">
+       <provider selected="true" editor-type-id="text-editor" />
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/features/environment.py">
++    <entry file="file://$PROJECT_DIR$/features/segund.feature">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="120">
++          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/features/steps/step_tutorial_2.py">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="17">
+-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
++        <state relative-caret-position="133">
++          <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
++          <folding>
++            <element signature="e#1824#1862#0" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+Index: .idea/primeros_pasos.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<module type=\"PYTHON_MODULE\" version=\"4\">\n  <component name=\"NewModuleRootManager\">\n    <content url=\"file://$MODULE_DIR$\" />\n    <orderEntry type=\"jdk\" jdkName=\"Python 2.7 (primeros_pasos)\" jdkType=\"Python SDK\" />\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n  </component>\n  <component name=\"TestRunnerService\">\n    <option name=\"PROJECT_TEST_RUNNER\" value=\"Unittests\" />\n  </component>\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/primeros_pasos.iml	(revision 2d23ec3b0f8de6f3fff89a8a305654d50175e30a)
++++ .idea/primeros_pasos.iml	(date 1523877985000)
+@@ -1,8 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <module type="PYTHON_MODULE" version="4">
+   <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="jdk" jdkName="Python 2.7 (primeros_pasos)" jdkType="Python SDK" />
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/venv" />
++      <excludeFolder url="file://$MODULE_DIR$/venv_primerospasos" />
++    </content>
++    <orderEntry type="jdk" jdkName="Python 2.7 (primeros_pasos) (1)" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+   <component name="TestRunnerService">
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"JavaScriptSettings\">\n    <option name=\"languageLevel\" value=\"ES6\" />\n  </component>\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 2.7 (primeros_pasos)\" project-jdk-type=\"Python SDK\" />\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 2d23ec3b0f8de6f3fff89a8a305654d50175e30a)
++++ .idea/misc.xml	(date 1523877985000)
+@@ -3,5 +3,5 @@
+   <component name="JavaScriptSettings">
+     <option name="languageLevel" value="ES6" />
+   </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7 (primeros_pasos)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7 (primeros_pasos) (1)" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
