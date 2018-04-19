@@ -15,3 +15,4 @@ Feature: Fight or Flight (Natural Language, tutorial02)
         Given the ninja has a third level black-belt
         When attacked by Chuck Norris
         Then the ninja should run for his life
+>>>>>>> bc7493cfb7e19251a505a92a9b5797494b0c7f81
