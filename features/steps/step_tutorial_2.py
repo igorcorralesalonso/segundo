@@ -53,7 +53,7 @@ class NinjaFight(object):
 # STEPS:
 # ----------------------------------------------------------------------------
 from behave   import given, when, then
-#from hamcrest import assert_that, equal_to, is_not
+from hamcrest import assert_that, equal_to, is_not
 
 @given('the ninja has a {achievement_level}')
 def step_the_ninja_has_a(context, achievement_level):
